@@ -8,7 +8,7 @@ import cv2
 import numpy as np
 
 from deepfacelab.core import imagelib
-from deepfacelab.facelib import FaceType, landmarks_processor 
+from deepfacelab.facelib import FaceType, landmarks_processor
 
 logger = logging.getLogger(__name__)
 

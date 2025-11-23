@@ -5,6 +5,7 @@ import multiprocessing
 import tensorflow.compat.v1 as tf
 import numpy as np
 
+from deepfacelab import config
 from deepfacelab.core.interact import interact as io
 from deepfacelab.core.leras.nn import nn
 from deepfacelab.facelib import FaceType
@@ -1284,7 +1285,7 @@ Examples: df, liae, df-d, df-ud, liae-ud, ...
                 else None
             )
 
-            cpu_count = multiprocessing.cpu_count()
+            cpu_count = config.CONFIG.cpu_number
             src_generators_count = cpu_count // 2
             dst_generators_count = cpu_count // 2
             if ct_mode is not None:
