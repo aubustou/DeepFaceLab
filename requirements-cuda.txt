@@ -4,9 +4,8 @@ numexpr
 h5py==3.8.0
 opencv-python==4.5.5.64
 ffmpeg-python==0.1.17
-scikit-image==0.14.2
+scikit-image==0.19.3
 scipy==1.10.1
 colorama
-tensorflow-gpu==2.4.0
+tensorflow==2.10.1
 pyqt5
-tf2onnx==1.9.3

@@ -30,10 +30,19 @@ WORKDIR /opt/DeepFaceLab
 
 # Installer les dépendances Python
 COPY requirements-cuda.txt .
+RUN sed -i "s/numpy==1\.17\.3/numpy==1.23.5/" requirements-cuda.txt \
+ && sed -i "s/scipy==1\.4\.1/scipy==1.10.1/" requirements-cuda.txt \
+  && sed -i "s/h5py==2\.9\.0/h5py==3.8.0/" requirements-cuda.txt  \
+   && sed -i "s/tensorflow-gpu==2\.4\.0/tensorflow==2.10.1/" requirements-cuda.txt \
+    && sed -i "s/scikit-image==0\.14\.2/scikit-image==0.19.3/" requirements-cuda.txt
+
+# Supprimer tf2onnx obsolète et incompatible
+RUN sed -i "/tf2onnx/d" requirements-cuda.txt
+
 RUN pip install -r requirements-cuda.txt
 
 # Installer une version de tensorflow compatible
-RUN pip install tensorflow==2.4.1   # ou version recommandée selon forks
+RUN pip install tensorflow==2.10.1   # ou version recommandée selon forks
 
 # Définir workspace
 ENV DFL_WORKSPACE="/workspace"
